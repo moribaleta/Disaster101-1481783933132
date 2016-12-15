@@ -4,7 +4,7 @@
         session_start();
         $key = 'af1d7670685d4b8389723009161212';
         echo $key;
-        $forcast_days='30';
+        $forcast_days='7';
         $city = $_SESSION['city'];
         echo $city;
         $url ="http://api.apixu.com/v1/forecast.json?key=$key&q=$city&days=$forcast_days";
