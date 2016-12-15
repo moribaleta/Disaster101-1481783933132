@@ -80,27 +80,31 @@
                 var infowindow = new google.maps.InfoWindow({map:map});
                 infowindow.setPosition(currlocation); //pointer of me
                 infowindow.setContent("your location");
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: currlocation,
 
+                });
 
                 var service = new google.maps.places.PlacesService(map); //call's search service
                 service.nearbySearch({
                     location: currlocation,
-                    radius: 1000,
+                    radius: 2000,
                     type: ['police']
                 }, callback);
                 service.nearbySearch({
                     location: currlocation,
-                    radius: 1000,
+                    radius: 2000,
                     type: ['hospital'] //search all hospital witihin radius
                 }, callback);
                 service.nearbySearch({
                     location: currlocation,
-                    radius: 1000,
+                    radius: 2000,
                     type: ['school']
                 }, callSchool);
                 service.nearbySearch({
                     location: currlocation,
-                    radius: 1500,
+                    radius: 2000,
                     type: ['fire_station']
                 }, callSchool);
                 getEvac();
