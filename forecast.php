@@ -2,7 +2,7 @@
     <head>
         <link rel="stylesheet" href="resources/css/style.css">
     </head>
-    <body>
+    <body style="background:white; padding 10px;">
         <?php
         session_start();
         $key = 'af1d7670685d4b8389723009161212';
