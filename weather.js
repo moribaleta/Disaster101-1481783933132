@@ -28,7 +28,8 @@ function displayLocation(latitude,longitude){
                 var data_content = document.createElement("h2");
                 /*data = data.substr(1,data.length-2);
                 data +"&#x2103;";*/
-                data_content.textContent = data[0]+"\n"+data[1];
+                data = JSON.parse(data);
+                data_content.innerHTML = data[0]+"</br>"+data[1];
                 document.getElementById('data_content').appendChild(data_content);
                 document.getElementById('forecast_data').src = 'forecast.php';
                 window.open('forecast.php','_blank');
