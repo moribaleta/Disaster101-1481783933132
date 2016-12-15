@@ -30,6 +30,7 @@ function displayLocation(latitude,longitude){
                 data +"&#x2103;";
                 data_content.textContent = data;
                 document.getElementById('data_content').appendChild(data_content);
+                document.getElementById('forecast_data').src = 'forecast.php';
             });
 
         }
