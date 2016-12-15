@@ -40,10 +40,10 @@ $weather = json_decode($json_output);
 
 $days = $weather->forecast->forecastday;
 
-foreach ($days as $day){
+/*foreach ($days as $day){
 
-    echo "<table>";
-    echo "<tr><td colspan='4' border='0'><h2>{$day->date}</h2> Sunrise: {$day->astro->sunrise} <br> Sunset: {$day->astro->sunset}"
+    $return = "<table>";
+    $return "<tr><td colspan='4' border='0'><h2>{$day->date}</h2> Sunrise: {$day->astro->sunrise} <br> Sunset: {$day->astro->sunset}"
         . "<br> condition: {$day->day->condition->text} <img src=' {$day->day->condition->icon}'/></td></tr>";
     echo "<tr><td>&nbsp;</td><td>Max.<br>Temprature</td><td>Min.<br>Temprature</td><td>Avg.<br>Temprature</td></tr>";
 
@@ -51,12 +51,12 @@ foreach ($days as $day){
     echo "<tr><td><h4>Wind</h4></td><td colspan='3'>{$day->day->maxwind_mph}Mph <br> {$day->day->maxwind_kph}kph </td></tr>";
     echo "</table> <br>";
 
-}
-/*$return = array(
-            {$day->day->condition->text},
-            {$day->day->condition->icon},
-            {$day->day->avgtemp_c},
-            {$day->day->maxwind_kph}."kph"
-        );*/
+}*/
+$return = array(
+            {$days->day->condition->text},
+            {$days->day->condition->icon},
+            {$days->day->avgtemp_c},
+            {$days->day->maxwind_kph}."kph"
+);
 echo json_encode($return);
 ?>
