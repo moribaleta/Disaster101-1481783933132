@@ -27,8 +27,6 @@ function displayLocation(latitude,longitude){
                 console.log(data);
                 var data_content = document.createElement("h2");
                 data = data.substr(1,data.length-2);
-                data = data.split('\n');
-                data = data[0]+'</br>'+data[1];
                 data +"&#x2103;";
                 data_content.textContent = data;
                 document.getElementById('data_content').appendChild(data_content);
