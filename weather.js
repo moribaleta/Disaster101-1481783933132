@@ -26,9 +26,9 @@ function displayLocation(latitude,longitude){
             $.post('weatherapi.php',{city: adr},function(data){
                 console.log(data);
                 var data_content = document.createElement("h2");
-                data = data.substr(1,data.length-2);
-                data +"&#x2103;";
-                data_content.textContent = data;
+                /*data = data.substr(1,data.length-2);
+                data +"&#x2103;";*/
+                data_content.textContent = data[0]+"\n"+data[1];
                 document.getElementById('data_content').appendChild(data_content);
                 document.getElementById('forecast_data').src = 'forecast.php';
                 window.open('forecast.php','_blank');
