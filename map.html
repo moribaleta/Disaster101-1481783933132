@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Map</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            #map {
+                height: 100%;
+                z-index: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script src="resources/js/jquery-3.0.0.min.js"></script>
+
+        <script>
+            var map;
+
+
+
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+
+                } else {
+                    alert("Geolocation is not supported by this browser.");
+                }
+            }
+            var lat_1, lng_1;
+            function showPosition(position) {
+                lat_1 = position.coords.latitude;
+                lng_1 = position.coords.longitude;
+                //map.setCenter(new google.maps.LatLng(lat, lng));
+                console.log(lat_1,lng_1);
+
+                initMap();
+            }
+            //var min =1000;
+            //var placeSet;
+            var infowindow;
+            var directionsService ;
+
+            function initMap() {
+                getLocation();
+                var currlocation = {lat: lat_1, lng: lng_1};
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: currlocation,
+                    zoom: 15,
+                    styles: [
+                        {
+                            featureType: 'all',
+                            stylers: [
+                                { saturation: -80 }
+                            ]
+                        },{
+                            featureType: 'road.arterial',
+                            elementType: 'geometry',
+                            stylers: [
+                                { hue: '#00ffee' },
+                                { saturation: 50 }
+                            ]
+                        },{
+                            featureType: 'poi.business',
+                            elementType: 'labels',
+                            stylers: [
+                                { visibility: 'off' }
+                            ]
+                        }
+                    ]
+                });
+
+                var infowindow = new google.maps.InfoWindow({map:map});
+                infowindow.setPosition(currlocation); //pointer of me
+                infowindow.setContent("your location");
+
+
+                var service = new google.maps.places.PlacesService(map); //call's search service
+                service.nearbySearch({
+                    location: currlocation,
+                    radius: 1000,
+                    type: ['police']
+                }, callback);
+                service.nearbySearch({
+                    location: currlocation,
+                    radius: 1000,
+                    type: ['hospital'] //search all hospital witihin radius
+                }, callback);
+                service.nearbySearch({
+                    location: currlocation,
+                    radius: 1000,
+                    type: ['school']
+                }, callSchool);
+                service.nearbySearch({
+                    location: currlocation,
+                    radius: 1500,
+                    type: ['fire_station']
+                }, callSchool);
+                getEvac();
+
+            }
+
+            function callSchool(results,status){
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        var place = results[i];
+                        if(place.name.indexOf("National")!==-1||place.name.indexOf("Public")!==-1){
+                            createPath(place); //marks nearest path
+                        }
+                    }
+                }
+            }
+
+
+
+            function callback(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var output = {
+                        min_out: 1000,
+                        place_out: null
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        output = costFunction(results[i],output.min_out, output.place_out);   //applies mathematical formula
+                    }
+                    createPath(output.place_out); //marks nearest path
+                }
+            }
+
+
+
+            function costFunction(place, min, placeSet) {
+                console.log(place.geometry.location);
+                var placeLoc = place.geometry.location;
+                console.log(placeLoc.lat());
+                console.log(placeLoc.lng());
+
+                //d = sqrt( x1-x2) + y )
+                var cost = Math.sqrt( Math.pow((lat_1-placeLoc.lat()),2)+Math.pow((lng_1-placeLoc.lng()),2 ));//distance formula
+                if(cost<min){
+                    min = cost;
+                    placeSet = place;
+                    console.log("winner -> " +place.name+": " +min)
+                }
+
+                var output = {
+                    min_out: min,
+                    place_out: placeSet
+                }
+
+                return output;
+
+            }
+
+            function createPath(placeSet){
+                directionsService = new google.maps.DirectionsService;
+                console.log("location name: "+placeSet.name);
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: placeSet.geometry.location,
+
+                });
+                var placeLoc = placeSet.geometry.location;
+                var clicked = false;
+                google.maps.event.addListener(marker, 'click', function() {
+                    if(!clicked){
+                        var infowindow = new google.maps.InfoWindow({map:map});
+                        infowindow.setContent(placeSet.name);
+                        infowindow.open(map, this);
+                        clicked = true;
+                    }else{
+                        directMap(placeLoc);
+                    }
+                    //directMap(placeLoc);
+                });
+                /*google.maps.event.addListener(marker, 'dbclick', function() {
+                    directMap(placeLoc);
+                });*/
+                /*marker.dblclick(function(){
+                    directMap(placeLoc);
+                })   */
+
+            }
+            //--------------------------------------------------------------set map
+            function directMap(placeLoc) {
+                var directionsService = new google.maps.DirectionsService;
+                var directionsDisplay = new google.maps.DirectionsRenderer;
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    styles: [
+                        {
+                            featureType: 'all',
+                            stylers: [
+                                { saturation: -80 }
+                            ]
+                        },{
+                            featureType: 'road.arterial',
+                            elementType: 'geometry',
+                            stylers: [
+                                { hue: '#00ffee' },
+                                { saturation: 50 }
+                            ]
+                        },{
+                            featureType: 'poi.business',
+                            elementType: 'labels',
+                            stylers: [
+                                { visibility: 'off' }
+                            ]
+                        }
+                    ],
+                    center: {lat: lat_1, lng: lng_1}
+                });
+                directionsDisplay.setMap(map);
+                calculateAndDisplayRoute(directionsService, directionsDisplay, placeLoc);
+            }
+
+            function calculateAndDisplayRoute(directionsService, directionsDisplay,placeLoc) {
+                try{
+                    directionsService.route({
+                        origin: {lat: lat_1, lng: lng_1},
+                        destination: {lat: placeLoc.lat(), lng: placeLoc.lng()},
+                        travelMode: 'WALKING'
+                    }, function(response, status) {
+                        if (status === 'OK') {
+                            directionsDisplay.setDirections(response);
+                        } else {
+                            window.alert('Directions request failed due to ' + status);
+                        }
+                    });
+                }catch(err){
+                    directionsService.route({
+                        origin: {lat: lat_1, lng: lng_1},
+                        destination: {lat: placeLoc.lat, lng: placeLoc.lng},
+                        travelMode: 'WALKING'
+                    }, function(response, status) {
+                        if (status === 'OK') {
+                            directionsDisplay.setDirections(response);
+                        } else {
+                            window.alert('Directions request failed due to ' + status);
+                        }
+                    });
+                }
+            }
+            function getEvac(){
+                var text = null;
+                $.ajax({
+                    url:'http://172.16.65.235/evac_site.db',
+                    success: function(response){
+                        console.log(response);
+                        response.split("\n").forEach(function(value){
+                            value = value.split(';');
+                            /*var infowindow = new google.maps.InfoWindow({map:map});
+                            var currlocation = {lat: Number(value[1]), lng: Number(value[2])}
+                            infowindow.setPosition(currlocation);    infowindow.setContent(value[3]);*/
+                            var marker = new google.maps.Marker({
+                                map: map,
+                            });
+                            var currlocation = {lat: Number(value[1]), lng: Number(value[2])}
+                            marker.setPosition(currlocation);
+                            var click = false;
+                            google.maps.event.addListener(marker, 'click', function() {
+                                if(!click){
+                                    var infowindow = new google.maps.InfoWindow({map:map});
+                                    infowindow.setContent(value[3]);
+                                    infowindow.open(map, this);
+                                    click = true;
+                                }else{
+                                    directMap(currlocation);
+                                }
+                            });
+
+                        });
+                    },
+                    error: function(response){
+                        console.log("error"+response)
+                    }
+                });
+
+            }
+
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBymq4YRMhZoMwnPUd2SfyzQQLEvUtafkM&libraries=places&callback=getLocation"
+                async defer></script>
+    </body>
+</html>

@@ -7,7 +7,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     <body>
-        <table>
+        <script>
+            window.open('main.html','_parent');
+        </script>
+        <!--table>
             <tr>
                 <td style='width: 30%;'>
                     <img class = 'newappIcon' src='images/newapp-icon.png'>
@@ -26,7 +29,7 @@
                 var request = new XMLHttpRequest();
 
                 var method = 'GET';
-                var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+                var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
                 var async = true;
 
                 request.open(method, url, async);
@@ -86,7 +89,7 @@
 
             navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);
 
-        </script>
+        </script>-->
     </body>
 </html>
 
