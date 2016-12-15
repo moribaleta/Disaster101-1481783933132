@@ -28,8 +28,9 @@ function displayLocation(latitude,longitude){
                 var data_content = document.createElement("h2");
                 data = data.substr(1,data.length-1);
                 data = data.split('\n');
-                data = data[0]+'\n'+data[1];
-                data +"&#2103";
+                data = data[0]+'\
+                '+data[1];
+                data +"&#x2103;";
                 data_content.textContent = data;
                 document.getElementById('data_content').appendChild(data_content);
             });
