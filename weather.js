@@ -27,7 +27,7 @@ function displayLocation(latitude,longitude){
                 console.log(data);
                 var data = document.createElement("h2");
                 data.textContent = data;
-                $('#data_content').append(data);
+                document.getElementById('data_content').appendChild(data);
             });
 
         }
