@@ -1,9 +1,9 @@
 var lat_1, lng_1;
-
+/*
 function getData(){
     getLocation();
 }
-
+*/
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);

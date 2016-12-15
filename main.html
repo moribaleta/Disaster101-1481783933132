@@ -54,7 +54,7 @@
 
         </script>
     </head>
-    <body onload="getData();">
+    <body>
         <header id="header">
             <div id="header_logo">
                 <h1>Emergency 101</h1>
@@ -75,14 +75,6 @@
                 </a>
                 <div id="data_content">
                     <h2 style="font-size:18px">status</h2>
-                    <script src="weather.js">
-                        /*var link =
-                        "https://twcservice.mybluemix.net/api/weather/v1/geocode/33.40/83.42/forecast/daily/3day.json?units=m&language=en-US";
-//                        console.log(link);
-                        $.getJSON(link,function(json){
-                           console.log(json);
-                        });*/
-                    </script>
                 </div>
 
 
@@ -160,13 +152,14 @@
                 $.ajax({
                     url:'http://mementoartgallery.com/sms.php?lat='+coord[0]+'&lon='+coord[1] + '',
                     success: function(response){
-                       console.log(response);
+                        console.log(response);
                         console.log(coord[0], coord[1]);
                     }
                 });
             }
 
         </script>
+        <script src="weather.js"></script>
     </body>
 
 </html>
