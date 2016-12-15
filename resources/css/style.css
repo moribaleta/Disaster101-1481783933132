@@ -36,21 +36,22 @@ body{
     min-height: 200px;
     padding-top: 5%;
     text-align: center;
-
+    min-height: 350;
 }
 
 #emergency_pane button{
     cursor: pointer;
     height: 40%;
-    width: auto;
-    min-width: 150px;
+    width: 100%;
     min-height: 150px;
     text-align: center;
-    border-radius: 100%;
+    border-radius: 0;
     background-color: brown;
     color: white;
     border-style: none;
-    box-shadow: 0px 4px 5px 5px rgba(0, 0, 0, 0.1);   transition: all .2s ease-in-out;
+    box-shadow: 0px 4px 5px 5px rgba(0, 0, 0, 0.1);
+    transition: all .2s ease-in-out;
+    display: inline-block;
 }
 
 #iframe_map{
@@ -84,7 +85,7 @@ body{
 
 #emergency_pane button:hover{
     text-align: center;
-    border-radius: 100px;
+    border-radius: 0;
     background-color: orange;
     color: white;
     border-style: none;
@@ -151,15 +152,16 @@ select{
     }
 
     #emergency_pane button{
-        height: auto;
-        width: auto;
-        min-width: 150px;
-        min-height: 150px;
+        min-height: 350px;
     }
 }
 
 @media screen and (min-width: 600px){
-
+    #emergency_pane button{
+        height: inherit;
+        min-width: 350px;
+        width: auto;
+    }
 
     #data_content, #crowd_report{
         float:left;
