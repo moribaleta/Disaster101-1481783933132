@@ -6,6 +6,7 @@
         echo $key;
     $forcast_days='30';
     $city = $_SESSION['city'];
+        echo $city;
     $url ="http://api.apixu.com/v1/forecast.json?key=$key&q=$city&days=$forcast_days";
 
     $ch = curl_init();
