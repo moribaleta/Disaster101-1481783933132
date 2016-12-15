@@ -55,11 +55,10 @@ session_start();
 
         }*/
         $return = array(
-            {$day[0]->day->condition->text},
-            {$day[0]->day->condition->icon},
-            {$day[0]->day->avgtemp_c},
-            {$day[0]->day->maxwind_kph}."kph"
+            {$day->day->condition->text},
+            {$day->day->condition->icon},
+            {$day->day->avgtemp_c},
+            {$day->day->maxwind_kph}."kph"
         );
-
 echo json_encode($return);
 ?>
