@@ -41,7 +41,7 @@
             echo "<tr><td>&deg;F</td><td>{$day->day->maxtemp_f}</td><td>{$day->day->mintemp_f}</td><td>{$day->day->avgtemp_f}</td></tr>";
 
             echo "<tr><td><h4>Wind</h4></td><td colspan='3'>{$day->day->maxwind_mph}Mph <br> {$day->day->maxwind_kph}kph </td></tr>";
-            echo "<tr><td><h4>Precipitation</h4></td><td colspan='3'>{$day->day->totalprecip_mm}</td></tr>";
+
             /*foreach ($day->hour as $hr){
 
                 echo "<tr><td colspan='4' border='0'>";
