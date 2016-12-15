@@ -26,7 +26,7 @@ function displayLocation(latitude,longitude){
             $.post('weatherapi.php',{city: adr},function(data){
                 console.log(data);
                 var data_content = document.createElement("h2");
-                data = data.substr(1,data.length-1);
+                data = data.substr(1,data.length-2);
                 data = data.split('\n');
                 data = data[0]+'\
                 '+data[1];
