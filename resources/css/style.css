@@ -57,7 +57,14 @@ body{
 #iframe_map{
     border: none;
 }
-
+.forecast{
+    width: 100%;
+}
+#forecast_data{
+    border: none;
+    height: 100%;
+    width: 100%;
+}
 #back, #close{
     float: left;
     margin: 10px;
