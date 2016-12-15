@@ -106,7 +106,7 @@
                     location: currlocation,
                     radius: 2000,
                     type: ['fire_station']
-                }, callSchool);
+                }, callback);
                 getEvac();
 
             }
@@ -131,9 +131,10 @@
                         place_out: null
                     }
                     for (var i = 0; i < results.length; i++) {
-                        output = costFunction(results[i],output.min_out, output.place_out);   //applies mathematical formula
+                        //output = costFunction(results[i],output.min_out, output.place_out);   //applies mathematical formula
+                        createPath(results[i]); //marks nearest path
                     }
-                    createPath(output.place_out); //marks nearest path
+
                 }
             }
 
