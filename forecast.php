@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="resources/css/style.css">
+    </head>
     <body>
         <?php
         session_start();
@@ -38,7 +41,8 @@
             echo "<tr><td>&deg;F</td><td>{$day->day->maxtemp_f}</td><td>{$day->day->mintemp_f}</td><td>{$day->day->avgtemp_f}</td></tr>";
 
             echo "<tr><td><h4>Wind</h4></td><td colspan='3'>{$day->day->maxwind_mph}Mph <br> {$day->day->maxwind_kph}kph </td></tr>";
-            foreach ($day->hour as $hr){
+            echo "<tr><td><h4>Precipitation</h4></td><td colspan='3'>{$day->day->totalprecip_mm}</td></tr>";
+            /*foreach ($day->hour as $hr){
 
                 echo "<tr><td colspan='4' border='0'>";
                 echo "<table style='width:100%;'>";
@@ -47,7 +51,7 @@
                 echo "<tr><td><div>{$hr->time}<img src=' {$hr->condition->icon}'/></div></td><td>{$hr->temp_c}&deg;C<br>{$hr->temp_f}&deg;F</td><td>{$hr->wind_mph}Mph <br> {$hr->wind_kph}kph</td><td>$hr->humidity</td></tr>";
 
                 echo "</table></tr></td>";
-            }
+            }*/
             echo "</table> <br>";
 
         }
