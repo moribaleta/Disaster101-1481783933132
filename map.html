@@ -38,7 +38,7 @@
                 lat_1 = position.coords.latitude;
                 lng_1 = position.coords.longitude;
                 //map.setCenter(new google.maps.LatLng(lat, lng));
-                console.log(lat_1,lng_1);
+//                console.log(lat_1,lng_1);
 
                 initMap();
             }
@@ -141,17 +141,17 @@
 
 
             function costFunction(place, min, placeSet) {
-                console.log(place.geometry.location);
+                //console.log(place.geometry.location);
                 var placeLoc = place.geometry.location;
-                console.log(placeLoc.lat());
-                console.log(placeLoc.lng());
+                //console.log(placeLoc.lat());
+                //console.log(placeLoc.lng());
 
                 //d = sqrt( x1-x2) + y )
                 var cost = Math.sqrt( Math.pow((lat_1-placeLoc.lat()),2)+Math.pow((lng_1-placeLoc.lng()),2 ));//distance formula
                 if(cost<min){
                     min = cost;
                     placeSet = place;
-                    console.log("winner -> " +place.name+": " +min)
+                //    console.log("winner -> " +place.name+": " +min)
                 }
 
                 var output = {
@@ -165,7 +165,7 @@
 
             function createPath(placeSet){
                 directionsService = new google.maps.DirectionsService;
-                console.log("location name: "+placeSet.name);
+               // console.log("location name: "+placeSet.name);
 
                 var marker = new google.maps.Marker({
                     map: map,
