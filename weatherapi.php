@@ -16,6 +16,6 @@ $json_output=curl_exec($ch);
 $weather = json_decode($json_output);
 
 $return = "City: ". $city ."
-Temperature: ". $weather->current->temp_c."℃";
+Temperature: ". $weather->current->temp_c;
 echo json_encode($return);
 ?>
