@@ -58,14 +58,6 @@ body{
 #iframe_map{
     border: none;
 }
-.forecast{
-    width: 100%;
-}
-#forecast_data{
-    border: none;
-    height: 100%;
-    width: 100%;
-}
 #back, #close{
     float: left;
     margin: 10px;
@@ -149,6 +141,14 @@ select{
     height: 25px;
 }
 
+.forecast{
+    width: 100%;
+}
+#forecast_data{
+    border: none;
+    height: 100%;
+    width: 100%;
+}
 @media screen and (max-width: 700px){
     #data_container #bottom_a{
         position: relative;
