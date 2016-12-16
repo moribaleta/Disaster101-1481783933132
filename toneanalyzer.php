@@ -18,7 +18,11 @@ $ch = curl_init();
 curl_setopt_array($ch,$defaults);
 if( ($postResult = curl_exec($ch))!=null){
     $result = file_get_contents($ch);
-    //echo var_dump(json_decode($result, true));
+    echo var_dump(json_decode($result, true));
+
+
+
+
 }else{
     die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
 }
