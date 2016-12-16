@@ -9,7 +9,7 @@
         getForecast('Davao');
         getForecast('Olongapo');
         getForecast('Baguio');
-        getForecast('Subic Bay');
+        getForecast('Subic');
         ?>
     </body>
 </html>
@@ -53,7 +53,6 @@ function getForecast($city){
     echo "<h2>Current Weather</h2>";
     echo "<h2>Location</h2>";
     echo "<h2>City: ". $weather->location->name."</h2>";
-    echo "<br>";
     echo "<h2>Temprature</h2>";
     echo "<br>";
     echo "Temperature (&deg;C): " . $weather->current->temp_c; echo "<br>";
@@ -64,8 +63,7 @@ function getForecast($city){
     echo $weather->current->wind_kph." kph <br>";
     echo $weather->current->wind_degree."&deg;  " . $weather->current->wind_dir."<br>";
     echo "Humidity: ".$weather->current->humidity;
-    echo "<br><br><br>";
-
+    echo "<br>";
     echo "Updated On: ".$weather->current->last_updated;
 
 }
