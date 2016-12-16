@@ -1,0 +1,24 @@
+var EQTIPS = [
+	{"tip":"Become aware of fire evacuation and earthquake safety plans for all of the buildings you occupy regularly."}
+	{"tip":"Pick safe places in each room of your home, workplace and/or school. A safe place could be under a piece of furniture or against an interior wall away from windows, bookcases or tall furniture that could fall on you."}
+	{"tip":"Practice “drop, cover and hold on” in each safe place. If you do not have sturdy furniture to hold on to, sit on the floor next to an interior wall and cover your head and neck with your arms."}
+	{"tip:""Keep a flashlight and sturdy shoes by each person’s bed in case the earthquake strikes in the middle of the night."}
+	{"tip":"Make sure your home is securely anchored to its foundation."}
+	{"tip":"Hang heavy items, such as pictures and mirrors, away from beds, couches and anywhere people sleep or sit."}
+	{"tip":"Install strong latches or bolts on cabinets. Large or heavy items should be closest to the floor."}
+	{"tip":"Learn how to shut off the gas valves in your home and keep a wrench handy for that purpose."}
+	{"tip":"Learn about your area’s seismic building standards and land use codes before you begin new construction."}
+	{"tip":"Keep and maintain an emergency supplies kit in an easy-to-access location."}
+	{"tip":"Teach everyone in your household to use emergency whistles and/or to knock three times repeatedly if trapped.Rescuers are trained to listen for such sounds"}
+	{"tip":"Know the location of utility shutoffs and keep needed tools nearby. Know how to turn off the gas, water, and electricity to your home. Only turn off the gas if you smell or hear leaking gas."}
+
+]
+
+var TSUTIPS = [
+	{"tip":"Find out if your home, school, workplace or other frequently visited locations are in tsunami hazard areas."}
+	{"tip":"Know the height of your street above sea level and the distance of your street from the coast or other high-risk waters. Evacuation orders may be based on these numbers."}
+	{"tip":"Plan evacuation routes from your home, school, workplace and other places you could be where tsunamis present a risk. If possible, pick areas 100 feet (30 meters) above sea level or go as far as 2 miles (3 kilometers) inland, away from the coastline. If you cannot get this high or far, go as high or far as you can. Every foot inland or upward may make a difference. You should be able to reach your safe location on foot within 15 minutes."}
+	{"tip":"Find out what the school evacuation plan is. Find out if the plan requires you to pick your children up from school or from another location. Telephone lines during a tsunami watch or warning may be overloaded, and routes to and from schools may be jammed."}
+	{"tip":"Practice your evacuation routes. Familiarity may save your life. Be able to follow your escape route at night and during inclement weather. Practicing your tsunami survival plan makes the appropriate response more of a reaction, requiring less thinking during an actual emergency."}
+	{"tip":"If you are a tourist, familiarize yourself with local tsunami evacuation protocols. You may be able to safely evacuate to the third floor and higher in reinforced concrete hotel structures."}
+]

@@ -1,0 +1,20 @@
+var evacLoc = [
+	{"evac":"Mandaluyong City - Mandaluyong Elementary School"}
+	{"evac":" Paranaque City - Tambo Elementary School (Main)"}
+	{"evac":"Quezon City - Senior Citizen Building cor. Victory Ave., Tatalon"}
+	{"evac":"West Rizal,San Mateo - Central Elementary School"}
+	{"evac":"West Rizal,San Mateo - Dona Pepeng Bato (Brgy. Banaba)"}
+	{"evac":"West Rizal,San Mateo - Maly Elementary School"}
+	{"evac":"West Rizal,San Mateo - Brgy. Sta Ana Covered Court"}
+	{"evac":"Makati - Brgy. Bangkal Sports Complex"}
+	{"evac":"Valenzuela City - Valenzuela National High School"}
+	{"evac":"Marikina - H. Bautista Elem. School"}
+	{"evac":"Marikina - Malanday"}
+	{"evac":"Marikina - Bulelak Covered Court"}
+	{"evac":"Marikina - Nangka Elementary School"}
+	{"evac":"Marikina - Filipinas Village Gym"}
+	{"evac":"Marikina - Concepcion Elementary School"}
+	{"evac":"Marikina - Concepcion Integrated School"}
+	{"evac":"San Juan - Rivera Barangay Hall"}
+	{"evac":"San Juan - Salapan Barangay Hall"}
+]
