@@ -76,7 +76,7 @@
                 <img id="bottom_ic" src="resources/images/arrow-down.png">
             </a>
             <div id="data_content">
-                <h2 style="font-size:18px">status</h2>
+                <h2 style="font-size:18px" id="status"><script>translateData('status','status');</script></h2>
             </div>
             <div id="crowd_report">
                 <iframe id="forecast_data" src="multipleforecast.php"></iframe>
@@ -257,7 +257,7 @@
         </div>
     </div>
     <form action="index.php" method="post">
-        <select name='lang-select'>
+        <select name='lang-select' id="lang-select">
             <option value="ar">Arabic</option>
             <option value="arz">Egyptian Arabicab</option>
             <option value="de">German</option>

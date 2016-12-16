@@ -28,6 +28,5 @@ function translateData(text,id){
             chyba("chyba v požadavku", "df");
         }
     });*/
-    console.log(data_return);
     return data_return;
 }

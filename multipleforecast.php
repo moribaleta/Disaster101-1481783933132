@@ -1,6 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="resources/css/style.css">
+        <script src="translator.js"></script>
     </head>
     <body style='background:white'>
         <?php
@@ -13,6 +14,7 @@
         ?>
     </body>
 </html>
+<script></script>
 
 <?php
 
@@ -50,10 +52,10 @@ function getForecast($city){
 
     $json_output=curl_exec($ch);
     $weather = json_decode($json_output);
-    echo "<h3>Current Weather</h2>";
-    echo "<h3>Location</h2>";
-    echo "<h3>City: ". $weather->location->name."</h2>";
-    echo "<h3>Temprature</h2>";
+    echo "<h3 id= 'curr$city' ><script>translateData('Current Weather','curr$city');</script></h3>";
+    echo "<h3 id= 'loc$city'><script>translateData('Location','oc$city');</script></h3>";
+    echo "<h3><p id='city$city'><script>translateData('City: ','city$city');</script></p>". $weather->location->name."</h3>";
+    echo "<h3 id='temp$city'><script>translateData('Temprature','temp$city');</script></h3>";
     echo "<br>";
     echo "Temperature (&deg;C): " . $weather->current->temp_c; echo "<br>";
     echo "Feels like (&deg;C)". $weather->current->feelslike_c;
