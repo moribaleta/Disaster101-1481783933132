@@ -2,7 +2,8 @@
     <head>
         <link rel=stylesheet href="resources/css/style.css">
     </head>
-    <body style="background:white; color:black">
+    <body>
+        <div style="background:white">
         <?php
             getForecast('Manila');
             getForecast('Cebu');
@@ -10,6 +11,7 @@
             getForecast('Olonggapo');
             getForecast('Cagayan De Oro');
         ?>
+        </div>
     </body>
 </html>
 
