@@ -1,6 +1,6 @@
 <?php
 $city = $_POST['city'];
-$fulladdr = $_POST['fulladdr']
+$fulladdr = $_POST['fulladdr'];
 session_start();
 $_SESSION['city'] =  $city;
 $_SESSION['fulladdr'] = $fulladdr;
