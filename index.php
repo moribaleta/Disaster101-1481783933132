@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if(!$_SESSION['lang']){
+    $_SESSION['lang'] = 'en';
+}
+else{
+    $_SESSION['lang'] = $_POST['lang'];
+}
+?>
 <html>
     <head>
         <title>DISASTER101</title>

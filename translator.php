@@ -1,12 +1,12 @@
 <?php
-/*session_start();
+session_start();
 $text = $_POST['text'];
 $lang = $_SESSION['lang'];
-$prevlang = $_SESSION['prevlang'];*/
-$text = 'Hello';
+$prevlang = 'en';
+/*$text = 'Hello';
 $lang = 'es';
 $prevlang = 'en';
-
+*/
 $username = "8b46b904-d994-436c-adef-f9b12c0e78e8";
 $password = "yWgLha3QEkZM";
 $params = ['source'=>$prevlang,'target'=>$lang,'text'=>$text];
@@ -20,7 +20,7 @@ $ch = curl_init();
 curl_setopt_array($ch,$defaults);
 if( ($postResult = curl_exec($ch))!=null){
     $result = file_get_contents($ch);
-    //echo var_dump(json_decode($result, true));
+    echo json_encode($result);
 }else{
     die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
 }
