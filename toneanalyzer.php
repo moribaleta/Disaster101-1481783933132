@@ -19,7 +19,7 @@ curl_setopt_array($ch,$defaults);
 if( ($postResult = curl_exec($ch))!=null){
     $result = file_get_contents($ch);
     $json = json_decode($result, true);
-    $anger = $json["document_tone"]["tone_categories"][0]["tones"][0]["score"];
+    $anger = $json["document_tone"]["tone_categories"];
     echo "<br><br><br>anger: $anger";
 
 }else{
