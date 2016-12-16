@@ -5,7 +5,7 @@ function translateData(text,id){
 
         //data = JSON.parse(data);
         //console.log(data);
-        document.getElementById(id).innerHTML = data;
+        document.getElementById(id).innerHTML = decodeURI(data);
         /*data_content.innerHTML = data[0]+"</br>"+data[1]+"</br>"+data[2];
         data_content.innerHTML += "<br><a href='forecast.php'>view forecast</a>";
         document.getElementById('data_content').appendChild(data_content);
