@@ -96,55 +96,70 @@
                     location: currlocation,
                     radius: 2000,
                     type: ['police']
-                }, callback);
+                }, callbackPolice);
                 service.nearbySearch({
                     location: currlocation,
                     radius: 2000,
                     type: ['hospital'] //search all hospital witihin radius
-                }, callback);
+                }, callbackHospital);
                 service.nearbySearch({
                     location: currlocation,
                     radius: 2000,
                     type: ['school']
-                }, callback);
+                }, callbackSchool);
                 service.nearbySearch({
                     location: currlocation,
                     radius: 2000,
                     type: ['fire_station']
-                }, callback);
+                }, callbackFire);
                 //   getEvac();
 
             }
 
-            function callSchool(results,status){
+            function callbackSchool(results,status){
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                     for (var i = 0; i < results.length; i++) {
-                        var place = results[i];
-                        if(place.name.indexOf("National")!==-1||place.name.indexOf("Public")!==-1){
-                            createPath(place); //marks nearest path
-                        }
+                        //if(place.name.indexOf("National")!==-1||place.name.indexOf("Public")!==-1){*/
+                        createPath(results[i],'school'); //marks nearest path
+                        //}
                     }
                 }
             }
 
 
 
-            function callback(results, status) {
+            function callbackFire(results, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    var output = {
-                        min_out: 1000,
-                        place_out: null
-                    }
 
                     for (var i = 0; i < results.length; i++) {
-                        //output = costFunction(results[i],output.min_out, output.place_out);   //applies mathematical formula
                         console.log(results[i]);
-                        //createPath(results[i]); //marks nearest path
+                        createPath(results[i],'fire');
                     }
 
                 }
             }
 
+             function callbackPolice(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+                    for (var i = 0; i < results.length; i++) {
+                        console.log(results[i]);
+                        createPath(results[i],'police');
+                    }
+
+                }
+            }
+
+             function callbackHospital(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+                    for (var i = 0; i < results.length; i++) {
+                        console.log(results[i]);
+                        createPath(results[i],'hospital');
+                    }
+
+                }
+            }
 
 
             function costFunction(place, min, placeSet) {
@@ -170,7 +185,7 @@
 
             }
 
-            function createPath(placeSet){
+            function createPath(placeSet,feature){
                 directionsService = new google.maps.DirectionsService;
                 // console.log("location name: "+placeSet.name);
                 var icons = {
@@ -184,14 +199,14 @@
                     school: {
                         icon: 'resources/images/school.png'
                     },
-                    fire_station:{
+                    fire:{
                         icon: 'resources/images/fire_station.png'
                     }
                 };
                 var marker = new google.maps.Marker({
                     map: map,
                     position: placeSet.geometry.location,
-                    icon: icons[placeSet.type].icon
+                    icon: icons[feature].icon
                 });
                 var placeLoc = placeSet.geometry.location;
                 var clicked = false;
