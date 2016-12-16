@@ -5,7 +5,7 @@ if(!$_SESSION['lang']){
     $_SESSION['lang'] = 'en';
 }
 else{
-    $_SESSION['lang'] = $_POST['lang'];
+    $_SESSION['lang'] = $_POST['lang-select'];
 }
 ?>
 <html>

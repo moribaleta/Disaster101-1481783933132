@@ -9,6 +9,7 @@
         <script src="resources/js/op.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"></meta>
+    <script src="translator.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         $(document).ready(
@@ -57,7 +58,7 @@
     </script>
     </head>
 <body>
-	
+
     <header id="header">
         <div id="header_logo">
             <h1>Disaster 101</h1>
@@ -109,10 +110,10 @@
             var longpress = false;
 
             $("#btnEmergency").on('click', function () {
-                    (longpress) ?
-                        runReport()
-                    : loadMap(1) ;
-                });
+                (longpress) ?
+                    runReport()
+                : loadMap(1) ;
+            });
 
             var startTime, endTime;
             $("#btnEmergency").on('mousedown', function () {
@@ -147,123 +148,123 @@
         loadMap(1);
     </script>
     <script src="weather.js"></script>
-	
-	<script>
 
-    $(function() {
+    <script>
 
-
-	   var people1 = [];
-
-	   $.getJSON('resources/json/Etips.json', function(data) {
-		   $.each(data.EQTIPS, function(i, f) {
-			  var tblRow = "<tr>" + "<td>" + "<p>" + "*" + f.tip + "</p>" + "<br>" +"</td>" + "</tr>"
-			   $(tblRow).appendTo("#tips1");
-		 });
-
-	   });
-
-	});
-	</script>
-
-	<div id="crowd_report">
-	<div id="tips1" style=";background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
-		<h1>Earthquake Disaster Prevention Tips</h1>
-	</div>		
-	</div>
-	
-	
-	<script>
-
-    $(function() {
+        $(function() {
 
 
-	   var people1 = [];
+            var people1 = [];
 
-	   $.getJSON('resources/json/tsutips.json', function(data) {
-		   $.each(data.TSUTIPS, function(i, f) {
-			  var tblRow = "<tr>" + "<td>" + "<p>" + "*" + f.tip + "</p>" + "<br>" +"</td>" + "</tr>"
-			   $(tblRow).appendTo("#tips2");
-		 });
+            $.getJSON('resources/json/Etips.json', function(data) {
+                $.each(data.EQTIPS, function(i, f) {
+                    var tblRow = "<tr>" + "<td>" + "<p>" + "*" +translateData( f.tip )+ "</p>" + "<br>" +"</td>" + "</tr>"
+                    $(tblRow).appendTo("#tips1");
+                });
 
-	   });
+            });
 
-	});
-	</script>
+        });
+    </script>
 
-
-	<div id="crowd_report">
-	<div id="tips2" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
-		<h1>Tsunami Disaster Prevention Tips</h1>
-	</div>		
-	</div>
-	
-	
-	<script>
-
-    $(function() {
+    <div id="crowd_report">
+        <div id="tips1" style=";background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
+            <h1>Earthquake Disaster Prevention Tips</h1>
+        </div>
+    </div>
 
 
-	   var people1 = [];
+    <script>
 
-	   $.getJSON('resources/json/typtips.json', function(data) {
-		   $.each(data.TYPTIPS, function(i, f) {
-			  var tblRow = "<tr>" + "<td>" + "<p>" + "*" + f.tip + "</p>" + "<br>" +"</td>" + "</tr>"
-			   $(tblRow).appendTo("#tips3");
-		 });
-
-	   });
-
-	});
-	</script>
+        $(function() {
 
 
-	<div id="crowd_report">
-	<div id="tips3" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
-		<h1>Typhoon Disaster Prevention Tips</h1>
-	</div>		
-	</div>
-	
-	
-	<script>
+            var people1 = [];
 
-    $(function() {
+            $.getJSON('resources/json/tsutips.json', function(data) {
+                $.each(data.TSUTIPS, function(i, f) {
+                    var tblRow = "<tr>" + "<td>" + "<p>" + "*" + translateData(f.tip) + "</p>" + "<br>" +"</td>" + "</tr>"
+                    $(tblRow).appendTo("#tips2");
+                });
 
+            });
 
-	   var people1 = [];
-
-	   $.getJSON('resources/json/evac.json', function(data) {
-		   $.each(data.evacLoc, function(i, f) {
-			  var tblRow = "<tr>" + "<td>" + "<p>" + f.evac + "</p>" + "<br>" +"</td>" + "</tr>"
-			   $(tblRow).appendTo("#tips4");
-		 });
-
-	   });
-
-	});
-	</script>
+        });
+    </script>
 
 
-	<div id="crowd_report">
-	<div id="tips4" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
-		<h1>Evacuation Centers</h1>
-	</div>		
-	</div>
-<form>
- <select>
-  <option value="ar">Arabic</option>
-  <option value="arz">Egyptian Arabicab</option>
-  <option value="de">German</option>
-  <option value="en">English</option>
-  <option value="es">Spanish</option>
-  <option value="fr">French</option>
-  <option value="it">Italian</option>
-  <option value="jp">Japanese</option>
-  <option value="ko">Korean</option>
-  <option value="pt">Portugese</option>
-</select>
-<input type="submit" value="Select"> 
-</form>
+    <div id="crowd_report">
+        <div id="tips2" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
+            <h1>Tsunami Disaster Prevention Tips</h1>
+        </div>
+    </div>
+
+
+    <script>
+
+        $(function() {
+
+
+            var people1 = [];
+
+            $.getJSON('resources/json/typtips.json', function(data) {
+                $.each(data.TYPTIPS, function(i, f) {
+                    var tblRow = "<tr>" + "<td>" + "<p>" + "*" + translateData(f.tip) + "</p>" + "<br>" +"</td>" + "</tr>"
+                    $(tblRow).appendTo("#tips3");
+                });
+
+            });
+
+        });
+    </script>
+
+
+    <div id="crowd_report">
+        <div id="tips3" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
+            <h1>Typhoon Disaster Prevention Tips</h1>
+        </div>
+    </div>
+
+
+    <script>
+
+        $(function() {
+
+
+            var people1 = [];
+
+            $.getJSON('resources/json/evac.json', function(data) {
+                $.each(data.evacLoc, function(i, f) {
+                    var tblRow = "<tr>" + "<td>" + "<p>" + f.evac + "</p>" + "<br>" +"</td>" + "</tr>"
+                    $(tblRow).appendTo("#tips4");
+                });
+
+            });
+
+        });
+    </script>
+
+
+    <div id="crowd_report">
+        <div id="tips4" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
+            <h1>Evacuation Centers</h1>
+        </div>
+    </div>
+    <form action="index.php" method="post">
+        <select name='lang-select'>
+            <option value="ar">Arabic</option>
+            <option value="arz">Egyptian Arabicab</option>
+            <option value="de">German</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="it">Italian</option>
+            <option value="jp">Japanese</option>
+            <option value="ko">Korean</option>
+            <option value="pt">Portugese</option>
+        </select>
+        <input type="submit" value="Select">
+    </form>
 </body>
 
 </html>
