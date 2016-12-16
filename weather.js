@@ -40,7 +40,7 @@ function displayLocation(latitude,longitude){
 
                 var hello = "hello";
 
-                window.location.href = "testing.php?w1=" + hello;
+                window.location.href = "https://disaster101.mybluemix.net/testing.php?w1=" + hello;
 
                  /*data = data.substr(1,data.length-2);
                 data +"&#x2103;";*/
