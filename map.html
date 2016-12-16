@@ -113,7 +113,7 @@
                     radius: 2000,
                     type: ['fire_station']
                 }, callbackFire);
-                //   getEvac();
+                   getEvac();
 
             }
 
@@ -300,6 +300,7 @@
                     var marker = new google.maps.Marker({
                         map: map,
                     });
+                    console.log(value);
                     var currlocation = {lat: Number(value[1]), lng: Number(value[2])}
                     marker.setPosition(currlocation);
                     var click = false;
