@@ -9,9 +9,8 @@ $params = ['version'=>'2016-05-19','text'=>'A%20word%20is%20dead%20when%20it%20i
 $defaults = array(
     CURLOPT_URL => 'https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone',
     CURLOPT_USERPWD => "$username:$password",
-    CURLOPT_POST => true,
+    CURLOPT_GET => true,
     CURLOPT_POSTFIELDS => $params,
-    CURLOPT_HTTPHEADER => $header
 );
 $ch = curl_init();
 curl_setopt_array($ch,$defaults);
