@@ -19,7 +19,9 @@ curl_setopt_array($ch,$defaults);
 if( ($postResult = curl_exec($ch))!=null){
     $result = file_get_contents($ch);
     $json = json_decode($result, true);
-    echo '<pre>' . print_r($json, true) . '</pre>';
+    $anger = $json["document_tone"]["tone_categories"]["tones"][0]["score"];
+    echo "<br><br><br>anger: $anger";
+
 }else{
     die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
 }

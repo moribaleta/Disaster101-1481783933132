@@ -1,7 +1,9 @@
 <?php
 $city = $_POST['city'];
+$fulladdr = $_POST['fulladdr']
 session_start();
 $_SESSION['city'] =  $city;
+$_SESSION['fulladdr'] = $fulladdr;
 /*
 $user_ip = getenv('REMOTE_ADDR');
 $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
