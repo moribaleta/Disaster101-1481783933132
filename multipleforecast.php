@@ -30,12 +30,10 @@ function getForecast($city){
     }
     $weather = json_decode($json_output);
 
-
     $days = $weather->forecast->forecastday;
 
     foreach ($days as $day){
         echo "<table>";
-        echo "<tr><td>&nbsp;</td><td>City: {$city}</td><td></tr>"
         echo "<tr><td colspan='4' border='0'>condition: {$day->day->condition->text} <img src=' {$day->day->condition->icon}'/></td></tr>";
         echo "<tr><td>&nbsp;</td><td>Max.<br>Temprature</td><td>Min.<br>Temprature</td><td>Avg.<br>Temprature</td></tr>";
         echo "<tr><td>&deg;C</td><td>{$day->day->maxtemp_c}</td><td>{$day->day->avgtemp_c}</td></tr>";
