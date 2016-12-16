@@ -21,7 +21,7 @@ $ch = curl_init();
 curl_setopt_array($ch,$defaults);
 if( ($postResult = curl_exec($ch))!=null){
     $result = file_get_contents($ch);
-    echo json_encode($result);
+    echo json_encode(urldecode($result));
 }else{
     die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
 }
