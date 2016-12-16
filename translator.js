@@ -11,5 +11,6 @@ function translateData(text){
         document.getElementById('data_content').appendChild(data_content);*/
         //document.getElementById('forecast_data').src = 'forecast.php';
     });
+    console.log(data_return);
     return data_return;
 }
