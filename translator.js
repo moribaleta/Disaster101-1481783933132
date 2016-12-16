@@ -18,7 +18,7 @@ function translateData(text,id){
         data:{text:text},
         success: function (msg) {
             console.log(msg);
-            document.getElementById(id).textContent = msg;
+            document.getElementById(id).textContent = JSON.parse(msg);
         }
         , error: function () {
             chyba("chyba v požadavku", "df");
