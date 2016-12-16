@@ -180,6 +180,6 @@ select{
 #forecast_data{
     background: white;
     border: none;
-    height: auto;
+    height: 100%;
     width: 100%;
 }
