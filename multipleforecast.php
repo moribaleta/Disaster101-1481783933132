@@ -50,10 +50,10 @@ function getForecast($city){
 
     $json_output=curl_exec($ch);
     $weather = json_decode($json_output);
-    echo "<h2>Current Weather</h2>";
-    echo "<h2>Location</h2>";
-    echo "<h2>City: ". $weather->location->name."</h2>";
-    echo "<h2>Temprature</h2>";
+    echo "<h3>Current Weather</h2>";
+    echo "<h3>Location</h2>";
+    echo "<h3>City: ". $weather->location->name."</h2>";
+    echo "<h3>Temprature</h2>";
     echo "<br>";
     echo "Temperature (&deg;C): " . $weather->current->temp_c; echo "<br>";
     echo "Feels like (&deg;C)". $weather->current->feelslike_c;
