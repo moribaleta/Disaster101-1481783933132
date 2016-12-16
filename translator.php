@@ -7,6 +7,7 @@ $prevlang = 'en';
 $lang = 'es';
 $prevlang = 'en';
 */
+if($prevlang != $lang){
 $username = "8b46b904-d994-436c-adef-f9b12c0e78e8";
 $password = "yWgLha3QEkZM";
 $params = ['source'=>$prevlang,'target'=>$lang,'text'=>urlencode($text)];
@@ -25,5 +26,7 @@ if( ($postResult = curl_exec($ch))!=null){
     die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
 }
 curl_close($ch);
-
+}else{
+    echo json_encode($text);
+}
 ?>
