@@ -3,8 +3,8 @@ function translateData(text,id){
     $.post('translator.php',{text: text},function(data){
         console.log(data);
 
-        data = JSON.parse(data);
-        console.log(data);
+        //data = JSON.parse(data);
+        //console.log(data);
         document.getElementById(id).textContent = data;
         /*data_content.innerHTML = data[0]+"</br>"+data[1]+"</br>"+data[2];
         data_content.innerHTML += "<br><a href='forecast.php'>view forecast</a>";
