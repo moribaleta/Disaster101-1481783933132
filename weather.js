@@ -37,7 +37,12 @@ function displayLocation(latitude,longitude){
              $.post('weatherapi.php',{city: adr, fulladdr: fulladdress},function(data){
                 console.log(data);
                 var data_content = document.createElement("h2");
-                /*data = data.substr(1,data.length-2);
+
+                var hello = "hello";
+
+                window.location.href = "testing.php?w1=" + hello;
+
+                 /*data = data.substr(1,data.length-2);
                 data +"&#x2103;";*/
                 data = JSON.parse(data);
                 data_content.innerHTML = data[0]+"</br>"+data[1]+"</br>"+data[2];
