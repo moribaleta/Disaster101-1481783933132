@@ -27,7 +27,7 @@ try
     $clockwork = new Clockwork( $API_KEY );
 
     // Setup and send a message
-    $message = array( 'to' => '9161174599', 'message' => 'This is a test!' );
+    $message = array( 'to' => '9210210020', 'message' => 'Good day MMDA!  This is from (https://disaster101.mybluemix.net). A Person needs help, located at' );
     $result = $clockwork->send( $message );
 
     // Check if the send was successful
