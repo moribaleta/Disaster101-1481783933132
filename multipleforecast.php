@@ -20,7 +20,7 @@
 function getForecast($city){
 
     $key = 'af1d7670685d4b8389723009161212';
-    $forcast_days='2';
+    $forcast_days='7';
     $url ="http://api.apixu.com/v1/forecast.json?key=$key&q=$city&days=$forcast_days";
     $ch = curl_init();
     curl_setopt($ch,CURLOPT_URL,$url);
