@@ -7,7 +7,7 @@ $prevlang = 'en';
 $lang = 'es';
 $prevlang = 'en';
 */
-if($prevlang != $lang){
+if($prevlang != $lang&&lang!=null){
 $username = "8b46b904-d994-436c-adef-f9b12c0e78e8";
 $password = "yWgLha3QEkZM";
 $params = ['source'=>$prevlang,'target'=>$lang,'text'=>$text];
