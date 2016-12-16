@@ -171,22 +171,25 @@
             function createPath(placeSet){
                 directionsService = new google.maps.DirectionsService;
                 // console.log("location name: "+placeSet.name);
-                /*var icons = {
+                var icons = {
 
                     hospital: {
                         icon: 'resources/images/hospital_2.png'
                     },
                     police: {
-                        icon: 'resources/images/hospital_2.png'
+                        icon: 'resources/images/police_2.png'
                     },
-                    info: {
-                        icon: 'resources/images/hospital_2.png'
+                    school: {
+                        icon: 'resources/images/school.png'
+                    },
+                    fire_station:{
+                        icon: 'resources/images/fire_station.png'
                     }
-                };*/
+                };
                 var marker = new google.maps.Marker({
                     map: map,
                     position: placeSet.geometry.location,
-
+                    icon: icons[placeSet.type].icon
                 });
                 var placeLoc = placeSet.geometry.location;
                 var clicked = false;
