@@ -20,6 +20,7 @@ if( ($postResult = curl_exec($ch))!=null){
     $result = file_get_contents($ch);
 
     //$anger = $json["document_tone"]["tone_categories"];
+    echo "<br><br>THIS<br><br>"
     echo $json = json_decode($result, true);
 
 }else{
