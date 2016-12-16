@@ -57,6 +57,7 @@
     </script>
     </head>
 <body>
+	
     <header id="header">
         <div id="header_logo">
             <h1>Disaster 101</h1>
@@ -75,23 +76,6 @@
             </a>
             <div id="data_content">
                 <h2 style="font-size:18px">status</h2>
-            </div>
-
-
-            <div id="crowd_report">
-                <h4>profile</h4>
-                <form action="data.php" method="post" >
-                    <input id="email" name="name" placeholder="Email Address"><br>
-                    <input id="location" name="location" ><br>
-                </form>
-            </div>
-            <div id="crowd_report">
-                <h4>enter your number <br>here to subscribe to our sms report</h4>
-                <form action="data.php" method="post" >
-                    <input name="number" placeholder="add number here"><br><br>
-                    <input type="submit" name="btn" value="submit" >
-
-                </form>
             </div>
             <div id="crowd_report">
                 <iframe id="forecast_data" src="multipleforecast.php"></iframe>
@@ -153,7 +137,7 @@
 
             //window.location.assign();//there are many ways to do this
             $.ajax({
-                url:'https://disaster101.mybluemix.net/sms.php?lat='+coord[0]+'&lon='+coord[1] + '',
+                url:'https://disaster101.mybluemix.net/sms.php',
                 success: function(response){
                     console.log(response);
                     console.log(coord[0], coord[1]);
@@ -265,8 +249,21 @@
 		<h1>Evacuation Centers</h1>
 	</div>		
 	</div>
-	
-
+<form>
+ <select>
+  <option value="ar">Arabic</option>
+  <option value="arz">Egyptian Arabicab</option>
+  <option value="de">German</option>
+  <option value="en">English</option>
+  <option value="es">Spanish</option>
+  <option value="fr">French</option>
+  <option value="it">Italian</option>
+  <option value="jp">Japanese</option>
+  <option value="ko">Korean</option>
+  <option value="pt">Portugese</option>
+</select>
+<input type="submit" value="Select"> 
+</form>
 </body>
 
 </html>
