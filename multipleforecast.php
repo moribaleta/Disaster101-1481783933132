@@ -61,7 +61,7 @@ function getForecast($city){
     echo "Feels like (&deg;C)". $weather->current->feelslike_c;
     echo "<br>";
     echo "Condition: <img src='" . $weather->current->condition->icon ."'>" . $weather->current->condition->text;
-    echo "<h2>Wind</h2>";
+    echo "<h4>Wind</h4>";
     echo $weather->current->wind_kph." kph <br>";
     echo $weather->current->wind_degree."&deg;  " . $weather->current->wind_dir."<br>";
     echo "Humidity: ".$weather->current->humidity;
