@@ -7,8 +7,8 @@ $text = 'Hello';
 $lang = 'es';
 $prevlang = 'en';
 
-$username = "47f54614-c53a-4fe4-a897-7a5e07e97565";
-$password = "u7pw8b7D2VNR";
+$username = "8b46b904-d994-436c-adef-f9b12c0e78e8";
+$password = "yWgLha3QEkZM";
 $params = ['source'=>$prevlang,'target'=>$lang,'text'=>$text];
 $defaults = array(
     CURLOPT_URL => 'https://gateway.watsonplatform.net/language-translator/api/v2/translate',
