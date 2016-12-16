@@ -135,8 +135,10 @@
                         min_out: 1000,
                         place_out: null
                     }
+
                     for (var i = 0; i < results.length; i++) {
                         //output = costFunction(results[i],output.min_out, output.place_out);   //applies mathematical formula
+                        console.log(results[i]);
                         createPath(results[i]); //marks nearest path
                     }
 
