@@ -108,11 +108,11 @@
         $(document).ready(function () {
             var longpress = false;
 
-            /*$("#btnEmergency").on('click', function () {
+            $("#btnEmergency").on('click', function () {
                     (longpress) ?
                         runReport()
                     : loadMap(1) ;
-                });*/
+                });
 
             var startTime, endTime;
             $("#btnEmergency").on('mousedown', function () {
@@ -137,7 +137,7 @@
 
             //window.location.assign();//there are many ways to do this
             $.ajax({
-                url:'http://mementoartgallery.com/sms.php?lat='+coord[0]+'&lon='+coord[1] + '',
+                url:'https://disaster101.mybluemix.net/sms.php',
                 success: function(response){
                     console.log(response);
                     console.log(coord[0], coord[1]);
