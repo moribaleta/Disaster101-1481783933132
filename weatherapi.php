@@ -23,7 +23,7 @@ session_start();
 $key = 'af1d7670685d4b8389723009161212';
 $forcast_days='1';
 $city = $_SESSION['city'];
-$url ="http://api.apixu.com/v1/forecast.json?key=$key&q=$city&days=$forcast_days";
+$url = "http://api.apixu.com/v1/current.json?key=$key&q=$city&=" ;
 
 $ch = curl_init();
 curl_setopt($ch,CURLOPT_URL,$url);
