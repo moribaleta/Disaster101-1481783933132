@@ -163,6 +163,110 @@
         loadMap(1);
     </script>
     <script src="weather.js"></script>
+	
+	<script>
+
+    $(function() {
+
+
+	   var people1 = [];
+
+	   $.getJSON('resources/json/Etips.json', function(data) {
+		   $.each(data.EQTIPS, function(i, f) {
+			  var tblRow = "<tr>" + "<td>" + "<p>" + "*" + f.tip + "</p>" + "<br>" +"</td>" + "</tr>"
+			   $(tblRow).appendTo("#tips1");
+		 });
+
+	   });
+
+	});
+	</script>
+
+	<div id="crowd_report">
+	<div id="tips1" style=";background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
+		<h1>Earthquake Disaster Prevention Tips</h1>
+	</div>		
+	</div>
+	
+	
+	<script>
+
+    $(function() {
+
+
+	   var people1 = [];
+
+	   $.getJSON('resources/json/tsutips.json', function(data) {
+		   $.each(data.TSUTIPS, function(i, f) {
+			  var tblRow = "<tr>" + "<td>" + "<p>" + "*" + f.tip + "</p>" + "<br>" +"</td>" + "</tr>"
+			   $(tblRow).appendTo("#tips2");
+		 });
+
+	   });
+
+	});
+	</script>
+
+
+	<div id="crowd_report">
+	<div id="tips2" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
+		<h1>Tsunami Disaster Prevention Tips</h1>
+	</div>		
+	</div>
+	
+	
+	<script>
+
+    $(function() {
+
+
+	   var people1 = [];
+
+	   $.getJSON('resources/json/typtips.json', function(data) {
+		   $.each(data.TYPTIPS, function(i, f) {
+			  var tblRow = "<tr>" + "<td>" + "<p>" + "*" + f.tip + "</p>" + "<br>" +"</td>" + "</tr>"
+			   $(tblRow).appendTo("#tips3");
+		 });
+
+	   });
+
+	});
+	</script>
+
+
+	<div id="crowd_report">
+	<div id="tips3" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
+		<h1>Typhoon Disaster Prevention Tips</h1>
+	</div>		
+	</div>
+	
+	
+	<script>
+
+    $(function() {
+
+
+	   var people1 = [];
+
+	   $.getJSON('resources/json/evac.json', function(data) {
+		   $.each(data.evacLoc, function(i, f) {
+			  var tblRow = "<tr>" + "<td>" + "<p>" + f.evac + "</p>" + "<br>" +"</td>" + "</tr>"
+			   $(tblRow).appendTo("#tips4");
+		 });
+
+	   });
+
+	});
+	</script>
+
+
+	<div id="crowd_report">
+	<div id="tips4" style="background-color:white;float:left;display:block;text-align:left;padding:10px;margin-left:30px;overflow-y: scroll; height:400px;">
+		<h1>Evacuation Centers</h1>
+	</div>		
+	</div>
+	
+
 </body>
 
 </html>
