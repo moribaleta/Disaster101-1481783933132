@@ -67,7 +67,7 @@
     </header>
     <con>
         <div id="emergency_pane">
-            <button id="btnEmergency"><script>translateData('Emergency');</script></button>
+            <button id="btnEmergency"><script>translateData('Emergency','btnEmergency');</script></button>
         </div>
         <button id="back" onclick="loadMap(2);">back</button>
         <iframe id="iframe_map" height="0" width="100%"></iframe>
@@ -157,9 +157,11 @@
             var people1 = [];
 
             $.getJSON('resources/json/Etips.json', function(data) {
+                var count = 1;
                 $.each(data.EQTIPS, function(i, f) {
-                    var tblRow = "<tr>" + "<td>" + "<p>" + "*" +translateData( f.tip )+ "</p>" + "<br>" +"</td>" + "</tr>"
+                    var tblRow = "<tr>" + "<td>" + "<p id='tip1"+count+"' >" + count+"." +translateData( f.tip,"tip1"+count )+ "</p>" + "<br>" +"</td>" + "</tr>"
                     $(tblRow).appendTo("#tips1");
+                    count++;
                 });
 
             });
@@ -182,9 +184,11 @@
             var people1 = [];
 
             $.getJSON('resources/json/tsutips.json', function(data) {
+                var count = 1;
                 $.each(data.TSUTIPS, function(i, f) {
-                    var tblRow = "<tr>" + "<td>" + "<p>" + "*" + translateData(f.tip) + "</p>" + "<br>" +"</td>" + "</tr>"
+                    var tblRow = "<tr>" + "<td>" + "<p id='tip2"+count+"' >" + count+"." + translateData(f.tip,"tip2"+count) + "</p>" + "<br>" +"</td>" + "</tr>"
                     $(tblRow).appendTo("#tips2");
+                    count++;
                 });
 
             });
@@ -208,9 +212,11 @@
             var people1 = [];
 
             $.getJSON('resources/json/typtips.json', function(data) {
+                var count = 1;
                 $.each(data.TYPTIPS, function(i, f) {
-                    var tblRow = "<tr>" + "<td>" + "<p>" + "*" + translateData(f.tip) + "</p>" + "<br>" +"</td>" + "</tr>"
+                    var tblRow = "<tr>" + "<td>" + "<p id='tip3"+count+"' >" + count+". " + translateData(f.tip,"tip3"+count) + "</p>" + "<br>" +"</td>" + "</tr>"
                     $(tblRow).appendTo("#tips3");
+                    count++;
                 });
 
             });

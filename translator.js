@@ -1,4 +1,4 @@
-function translateData(text){
+function translateData(text,id){
     var data_return = text;
     /*$.post('translator.php',{text: text},function(data){
         console.log(data);
@@ -18,7 +18,7 @@ function translateData(text){
         data:{text:text},
         success: function (msg) {
             console.log(msg);
-            return msg;
+            document.getElementById(id).textContent = msg;
         }
         , error: function () {
             chyba("chyba v požadavku", "df");
