@@ -2,7 +2,7 @@
     <head>
         <link rel=stylesheet href="resources/css/style.css">
     </head>
-    <body>
+    <body style="background:white">
         <?php
             getForecast('Manila');
             getForecast('Cebu');
@@ -37,6 +37,7 @@ function getForecast($city){
 
     foreach ($days as $day){
         echo "<table>";
+        echo "<tr><td>&nbsp;</td><td>City: {$city}</td><td></tr>"
         echo "<tr><td colspan='4' border='0'><h2>{$day->date}</h2> Sunrise: {$day->astro->sunrise} <br> Sunset: {$day->astro->sunset}"
             . "<br> condition: {$day->day->condition->text} <img src=' {$day->day->condition->icon}'/></td></tr>";
         echo "<tr><td>&nbsp;</td><td>Max.<br>Temprature</td><td>Min.<br>Temprature</td><td>Avg.<br>Temprature</td></tr>";
