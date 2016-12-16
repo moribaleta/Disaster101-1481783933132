@@ -33,23 +33,17 @@ function displayLocation(latitude,longitude){
                 document.getElementById('forecast_data').src = 'forecast.php';
             });
             */
-            $.ajax({
-                type: "POST",
-                url: "weatherapi.php",
-                data:'{"city":"'+adr+'"}',
-                success: function(data){
-                    console.log(data);
-                    //var data_content = document.createElement("h3");
-                    data = JSON.parse(data);
-                    /*data_content.innerHTML = "condition: "+data[0]+" "+data[1]+"</br>temperature: "+
-                        data[2]+"</br>windspeed: "+data[3];
-                    document.getElementById('data_content').appendChild(data_content);
-                    document.getElementById('forecast_data').src = 'forecast.php';*/
-                },
-                error: function(data){
-                    alert("fail");
-                }
-            })
+             $.post('weatherapi.php',{city: adr},function(data){
+                console.log(data);
+                var data_content = document.createElement("h2");
+                /*data = data.substr(1,data.length-2);
+                data +"&#x2103;";*/
+                data = JSON.parse(data);
+                data_content.innerHTML = data[0]+"</br>"+data[1]+"</br>"+data[2];
+                document.getElementById('data_content').appendChild(data_content);
+                document.getElementById('forecast_data').src = 'forecast.php';
+            });
+
         }
     };
     request.send();
