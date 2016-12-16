@@ -19,8 +19,10 @@ $weather = json_decode($json_output);
 
 $return = array("City: ".$city,"Temperature: ". $weather->current->temp_c);
 */
+session_start();
 $key = 'af1d7670685d4b8389723009161212';
 $forcast_days='1';
+$city = $_SESSION['city'];
 $url ="http://api.apixu.com/v1/forecast.json?key=$key&q=$city&days=$forcast_days";
 
 $ch = curl_init();
@@ -28,35 +30,39 @@ curl_setopt($ch,CURLOPT_URL,$url);
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 
 $json_output=curl_exec($ch);
-if( ($postResult = curl_exec($ch))!=null){
-    $result = file_get_contents($ch);
-    echo "<script>console.log('".var_dump(json_decode($result, true))."');</script>";
-
-}else{
-    die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
-}
 $weather = json_decode($json_output);
+curl_close($ch);
+/*
+echo "<h1>Current Weather</h1>";
+echo "<h2>Location</h2>";
+echo "City: ". $weather->location->name;
+echo "<br>";
+echo "Region: ".$weather->location->region;
+echo "<br>";
+echo "Country: ".$weather->location->country;
+echo "<br>";
+echo "Lat: ".$weather->location->lat." , Lon:".$weather->location->lon;
 
+echo "<h2>Temprature</h2>";
 
-$days = $weather->forecast->forecastday;
+echo "<br>";
+echo "Temperature (&deg;C): " . $weather->current->temp_c; echo "<br>";
+echo "Feels like (&deg;C)". $weather->current->feelslike_c;
+echo "<br>";
+echo "<br>";
+echo "Temperature (&deg;F): " . $weather->current->temp_f; echo "<br>";
+echo "Feels like (&deg;F)". $weather->current->feelslike_f;
+echo "<br>";
+echo "Condition: <img src='" . $weather->current->condition->icon ."'>" . $weather->current->condition->text;
 
-/*foreach ($days as $day){
+echo "<h2>Wind</h2>";
+echo $weather->current->wind_mph." mph <br>";
+echo $weather->current->wind_kph." kph <br>";
+echo $weather->current->wind_degree."&deg;  " . $weather->current->wind_dir."<br>";
+echo "Humidity: ".$weather->current->humidity;
+echo "<br><br><br>";
 
-    $return = "<table>";
-    $return "<tr><td colspan='4' border='0'><h2>{$day->date}</h2> Sunrise: {$day->astro->sunrise} <br> Sunset: {$day->astro->sunset}"
-        . "<br> condition: {$day->day->condition->text} <img src=' {$day->day->condition->icon}'/></td></tr>";
-    echo "<tr><td>&nbsp;</td><td>Max.<br>Temprature</td><td>Min.<br>Temprature</td><td>Avg.<br>Temprature</td></tr>";
-
-    echo "<tr><td>&deg;C</td><td>{$day->day->maxtemp_c}</td><td>{$day->day->mintemp_f}</td><td>{$day->day->avgtemp_c}</td></tr>";
-    echo "<tr><td><h4>Wind</h4></td><td colspan='3'>{$day->day->maxwind_mph}Mph <br> {$day->day->maxwind_kph}kph </td></tr>";
-    echo "</table> <br>";
-
-}*/
-$return = array(
-            {$days->day->condition->text},
-            {$days->day->condition->icon},
-            {$days->day->avgtemp_c},
-            {$days->day->maxwind_kph}."kph"
-);
+echo "Updated On: ".$weather->current->last_updated;*/
+$return = array( $weather->current->temp_c , $weather->current->feelslike_c, $weather->current->condition->text, $weather->current->wind_kph, $weather->current->wind_dir,$weather->current->humidity,$weather->current->last_updated );
 echo json_encode($return);
 ?>

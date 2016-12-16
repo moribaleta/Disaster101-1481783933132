@@ -39,12 +39,12 @@ function displayLocation(latitude,longitude){
                 data:'{"city":"'+adr+'"}',
                 success: function(data){
                     console.log(data);
-                    var data_content = document.createElement("h3");
+                    //var data_content = document.createElement("h3");
                     data = JSON.parse(data);
-                    data_content.innerHTML = "condition: "+data[0]+" "+data[1]+"</br>temperature: "+
+                    /*data_content.innerHTML = "condition: "+data[0]+" "+data[1]+"</br>temperature: "+
                         data[2]+"</br>windspeed: "+data[3];
                     document.getElementById('data_content').appendChild(data_content);
-                    document.getElementById('forecast_data').src = 'forecast.php';
+                    document.getElementById('forecast_data').src = 'forecast.php';*/
                 },
                 error: function(data){
                     alert("fail");
