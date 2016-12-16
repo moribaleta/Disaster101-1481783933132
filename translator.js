@@ -3,7 +3,7 @@ function translateData(text){
         console.log(data);
         /*data = data.substr(1,data.length-2);
                 data +"&#x2103;";*/
-        data = JSON.parse(data);
+        //data = JSON.parse(data);
         return data;
         /*data_content.innerHTML = data[0]+"</br>"+data[1]+"</br>"+data[2];
         data_content.innerHTML += "<br><a href='forecast.php'>view forecast</a>";
