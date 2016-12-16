@@ -172,8 +172,8 @@ select{
 
     #data_content, #crowd_report{
         float:left;
-        width: 250px;
-        min-width: 300px;
+        width: 40%;
+        min-width: 450px;
         min-height: 250px;
     }
 
