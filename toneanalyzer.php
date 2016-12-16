@@ -18,7 +18,10 @@ $ch = curl_init();
 curl_setopt_array($ch,$defaults);
 if( ($postResult = curl_exec($ch))!=null){
     $result = file_get_contents($ch);
-    //echo var_dump(json_decode($result, true));
+    $json = json_decode($result, true);
+    $anger = $json["document_tone"]["tone_categories"]["tones"][0]["score"];
+    echo "<br><br><br>anger: $anger";
+
 }else{
     die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
 }

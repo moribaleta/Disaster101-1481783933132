@@ -11,6 +11,7 @@ function displayLocation(latitude,longitude){
         if(request.readyState == 4 && request.status == 200){
             var data = JSON.parse(request.responseText);
             var address = data.results[0];
+            var fulladdress = address.formatted_address;
             //document.write(address.formatted_address);
             var adr = address.formatted_address.split(',');
             adr = adr[1].substr(1,adr[1].length);
@@ -33,7 +34,7 @@ function displayLocation(latitude,longitude){
                 document.getElementById('forecast_data').src = 'forecast.php';
             });
             */
-             $.post('weatherapi.php',{city: adr},function(data){
+             $.post('weatherapi.php',{city: adr, fulladdr: fulladdress},function(data){
                 console.log(data);
                 var data_content = document.createElement("h2");
                 /*data = data.substr(1,data.length-2);
