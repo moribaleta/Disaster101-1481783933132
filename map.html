@@ -38,7 +38,7 @@
                 lat_1 = position.coords.latitude;
                 lng_1 = position.coords.longitude;
                 //map.setCenter(new google.maps.LatLng(lat, lng));
-//                console.log(lat_1,lng_1);
+                //                console.log(lat_1,lng_1);
 
                 initMap();
             }
@@ -80,14 +80,19 @@
                 var infowindow = new google.maps.InfoWindow({map:map});
                 infowindow.setPosition(currlocation); //pointer of me
                 infowindow.setContent("your location");
+                var icons = {
+                    user: {
+                        icon: 'resources/images/user.png'
+                    }
+                };
                 var marker = new google.maps.Marker({
                     map: map,
                     position: currlocation,
-
+                    icon: icons['user'].icon
                 });
 
-                var service = new google.maps.places.PlacesService(map); //call's search service
-                service.nearbySearch({
+                    var service = new google.maps.places.PlacesService(map); //call's search service
+                    service.nearbySearch({
                     location: currlocation,
                     radius: 2000,
                     type: ['police']
@@ -107,7 +112,7 @@
                     radius: 2000,
                     type: ['fire_station']
                 }, callback);
-             //   getEvac();
+                //   getEvac();
 
             }
 
@@ -151,7 +156,7 @@
                 if(cost<min){
                     min = cost;
                     placeSet = place;
-                //    console.log("winner -> " +place.name+": " +min)
+                    //    console.log("winner -> " +place.name+": " +min)
                 }
 
                 var output = {
@@ -165,8 +170,19 @@
 
             function createPath(placeSet){
                 directionsService = new google.maps.DirectionsService;
-               // console.log("location name: "+placeSet.name);
+                // console.log("location name: "+placeSet.name);
+                /*var icons = {
 
+                    hospital: {
+                        icon: 'resources/images/hospital_2.png'
+                    },
+                    police: {
+                        icon: 'resources/images/hospital_2.png'
+                    },
+                    info: {
+                        icon: 'resources/images/hospital_2.png'
+                    }
+                };*/
                 var marker = new google.maps.Marker({
                     map: map,
                     position: placeSet.geometry.location,
