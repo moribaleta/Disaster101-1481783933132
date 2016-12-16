@@ -1,12 +1,22 @@
 <html>
-
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            border-top: 3px solid !important;
+        }
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
     <body>
         <?php
         getForecast('Manila');
         getForecast('Cebu');
         getForecast('Davao');
-        getForecast('Olonggapo');
-        getForecast('Cagayan De Oro');
+        getForecast('Olongapo');
+        getForecast('CagayanDeOro');
         ?>
     </body>
 </html>
