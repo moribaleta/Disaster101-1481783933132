@@ -127,8 +127,11 @@
         });
 
         function runReport(){
-            var email = document.getElementById("email").value;
-            sessionStorage.setItem('email',email);
+            /*var email = document.getElementById("email").value;
+            sessionStorage.setItem('email',email);*/
+            $.post('email.php',{},function(data){
+                alert('report has been sent');
+            });
             open_script();
             alert('report has been sent');
         }
