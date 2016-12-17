@@ -67,7 +67,7 @@
     </header>
     <con>
         <div id="emergency_pane">
-            <button id="btnEmergency"><script>translateData('Emergency','btnEmergency');</script></button>
+            <button id="btnEmergency" onclick="press();"><script>translateData('Emergency','btnEmergency');</script></button>
         </div>
         <button id="back" onclick="loadMap(2);">back</button>
         <iframe id="iframe_map" height="0" width="100%"></iframe>
@@ -126,14 +126,14 @@
             });
             */
             var send  = false;
-            $("#btnEmergency").onclick('click',function(){
+            function press(){
                 if(send){
                     runReport();
                 }else{
                     send = true;
                     alert("press again");
                 }
-            })
+            }
         });
 
         function runReport(){
