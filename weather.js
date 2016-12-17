@@ -14,7 +14,7 @@ function displayLocation(latitude,longitude){
             var fulladdress = address.formatted_address;
             //document.write(address.formatted_address);
             var adr = address.formatted_address.split(',');
-            adr = adr[1].substr(1,adr[1].length);
+            adr = adr[3].substr(1,adr[3].length);
             console.log(adr);
             //window.open("weatherapi.php?city='"+adr[1]+"'",'_blank');
             /*$.ajax({
