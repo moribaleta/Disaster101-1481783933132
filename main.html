@@ -107,7 +107,7 @@
         }
 
         $(document).ready(function () {
-            var longpress = false;
+            /*var longpress = false;
 
             $("#btnEmergency").on('click', function () {
                 (longpress) ?
@@ -124,6 +124,16 @@
                 endTime = new Date().getTime();
                 longpress = (endTime - startTime < 500) ? false : true;
             });
+            */
+            var send  = false;
+            $("#btnEmergency").onclick('click',function(){
+                if(send){
+                    runReport();
+                }else{
+                    send = true;
+                    alert("press again");
+                }
+            })
         });
 
         function runReport(){
