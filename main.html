@@ -125,17 +125,17 @@
                 longpress = (endTime - startTime < 500) ? false : true;
             });
             */
-            var send  = false;
-            function press(){
-                if(send){
-                    runReport();
-                }else{
-                    send = true;
-                    alert("press again");
-                }
-            }
-        });
 
+        });
+        var send  = false;
+        function press(){
+            if(send){
+                runReport();
+            }else{
+                send = true;
+                alert("press again");
+            }
+        }
         function runReport(){
             /*var email = document.getElementById("email").value;
             sessionStorage.setItem('email',email);*/
@@ -269,22 +269,22 @@
             <h1 id="tip4"><script>translateData('Evacuation Centers',"tip4");</script></h1>
         </div>
     </div>
-     <div id="crowd_report">
-    <form action="index.php" method="post">
-        <select name='lang-select' id="lang-select">
-            <option value="ar">Arabic</option>
-            <option value="arz">Egyptian Arabicab</option>
-            <option value="de">German</option>
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="it">Italian</option>
-            <option value="jp">Japanese</option>
-            <option value="ko">Korean</option>
-            <option value="pt">Portugese</option>
-        </select>
-        <input type="submit" value="Select">
-    </form>
+    <div id="crowd_report">
+        <form action="index.php" method="post">
+            <select name='lang-select' id="lang-select">
+                <option value="ar">Arabic</option>
+                <option value="arz">Egyptian Arabicab</option>
+                <option value="de">German</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="it">Italian</option>
+                <option value="jp">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="pt">Portugese</option>
+            </select>
+            <input type="submit" value="Select">
+        </form>
     </div>
 </body>
 
