@@ -147,14 +147,13 @@
         }
 
         function open_script(){
-            var coord = document.getElementById("location").value.split(", ");
+            //var coord = document.getElementById("location").value.split(", ");
 
             //window.location.assign();//there are many ways to do this
             $.ajax({
                 url:'https://disaster101.mybluemix.net/sms.php',
                 success: function(response){
                     console.log(response);
-                    console.log(coord[0], coord[1]);
                 }
             });
         }
